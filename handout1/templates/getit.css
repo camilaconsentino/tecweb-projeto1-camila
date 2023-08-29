@@ -173,8 +173,8 @@ Algumas informações úteis e dicas:
 
  .card img {
    display: flex;
-   justify-content: left;
-   align-items: center;
+   justify-content: space-between;
+   align-items: flex-start;
  }
  
  .card-title {
