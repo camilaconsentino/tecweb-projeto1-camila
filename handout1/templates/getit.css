@@ -1,0 +1,247 @@
+/*
+Algumas informações úteis e dicas:
+  - Fontes disponíveis:
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+  - Cores:
+    Tons de amarelo:
+      #e4fc2b
+      #e0d426
+      #f7d736
+      #e0af26
+      #fcb02b
+    Tons de cinza:
+      #2c2c2c
+      #4c4c4c
+    Cores dos cards:
+      #ead3a7
+      #9de0f5
+      #ef89ba
+      #fae890
+      #abe9c1
+  - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
+ */
+
+ html,
+ body {
+   font-family: "Roboto", sans-serif;
+ }
+ 
+ .appbar {
+   background: #f7d74a; 
+   height: 60px;
+   display: flex;
+   justify-content: left;
+   align-items: center;
+   position: sticky;
+   box-shadow: 0 1px 10px 2px rgba( 0, 0, 0, 0.6);
+ 
+ }
+ 
+ .appbar img {
+   max-width: 70px;
+   margin-left: 8px;
+ }
+ 
+ .subtitle {
+   margin-left: 10px;
+   font-size: 13px;
+ }
+ 
+ .container{
+   padding-top: 25px;
+   /* padding-left: 20px;
+   padding-right: 20px; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   
+ }
+ 
+ .form-card{
+   background: #fff; 
+   height: 120px;
+   width: 550px;
+   display:flex;
+   justify-content: space-evenly;
+   flex-direction: column;
+   box-shadow: 0 3px 10px  rgba( 0, 0, 0, 0.6);
+   border-radius: 3px;
+   align-items: left;
+   padding: 12px 10px 8px 10px;
+ }
+ 
+ .autoresize { /*conteudo*/
+   margin: 10px;
+   width: 100%;
+   padding: 8px;
+   border: 0px solid #ccc;
+   box-sizing: border-box;
+   text-align: left;
+   font-family: 'Roboto', sans-serif;
+   height: 30px; 
+   overflow-y: hidden;
+ 
+ }
+ 
+ 
+ .form-card-title {
+   border-width: 0;
+   font-size: 20px;
+   font-weight: 500;
+ }
+ 
+ .autoresize {
+   border-width: 0;
+   display: flex;
+   justify-content: left;
+   align-items: center;
+   padding-top: 15px;
+   font-family: "Roboto", sans-serif;
+   resize: None;
+ }
+ 
+ /* Você pode usar o CSS comentado abaixo, se ajudar */
+ /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
+ .btn {
+   position: relative;
+   display: block;
+   padding: 10px 15px;
+   overflow: hidden;
+   border-width: 0;
+   outline: none;
+   border-radius: 2px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+ 
+   background-color: #f7d736;
+ 
+   transition: background-color 0.3s;
+ }
+ 
+ .btn > * {
+   position: relative;
+ }
+ 
+ .btn:before {
+   content: "";
+ 
+   position: absolute;
+   top: 50%;
+   left: 50%;
+ 
+   display: block;
+   width: 0;
+   padding-top: 0;
+ 
+   border-radius: 100%;
+ 
+   background-color: rgba(236, 240, 241, 0.3);
+ 
+   -webkit-transform: translate(-50%, -50%);
+   -moz-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   -o-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+ }
+ 
+ .btn:active:before {
+   width: 120%;
+   padding-top: 120%;
+ 
+   transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+ } 
+ 
+ .card-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+   align-self: center;
+   gap: 20px;
+   margin-top: 20px;
+   padding: 30px; 
+  
+ }
+ 
+ .card{
+   border-radius: 5px;
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+   padding: 20px;
+   position: relative;
+   overflow: hidden; 
+   
+ }
+
+ .card img {
+   display: flex;
+   justify-content: left;
+   align-items: center;
+ }
+ 
+ .card-title {
+   font-size: 20px;
+   margin-bottom: 10px;
+   font-family: 'Permanent Marker', cursive;
+ }
+ 
+ .card-content {
+   font-size: 15px;
+   color: #4c4c4c;
+   font-family: 'Permanent Marker', cursive;
+ }
+ 
+ .card-color-1{
+   background-color: #ead3a7;
+ }
+ 
+ .card-color-2{
+   background-color: #9de0f5;
+ }
+ 
+ .card-color-3{
+   background-color: #ef89ba;
+ }
+ 
+ .card-color-4{
+   background-color: #fae890;
+ }
+ 
+ .card-color-5{
+   background-color: #abe9c1;
+ }
+ 
+ .card-rotation-1{
+   transform: rotate(-1deg);
+ }
+ 
+ .card-rotation-2{
+   transform: rotate(1deg);
+ }
+ 
+ .card-rotation-3 {
+   transform: rotate(-2deg);
+ }
+ .card-rotation-4 {
+   transform: rotate(2deg);
+ }
+ .card-rotation-5 {
+   transform: rotate(-3deg);
+ }
+ 
+ .card-rotation-6 {
+   transform: rotate(3deg);
+ }
+ .card-rotation-7 {
+   transform: rotate(-4deg);
+ }
+ .card-rotation-8 {
+   transform: rotate(4deg);
+ }
+ .card-rotation-9 {
+   transform: rotate(5deg);
+ }
+ .card-rotation-10 {
+   transform: rotate(-5deg);
+ }
+ .card-rotation-11 {
+   transform: rotate(-3deg);
+ }
