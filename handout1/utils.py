@@ -21,13 +21,13 @@ def read_file(path):
         return conteudo
     
 def load_data(json_arq):
-    path = "data/{name}".format(name=json_arq)
+    path = "/Users/camilaconsentino/Desktop/tecweb/projeto1/tecweb-projeto1-camila/handout1/data/{name}".format(name=json_arq)
     with open(path, 'r') as file:
         conteudo = json.load(file)
         return conteudo
     
 def load_template(arq):
-    path = "templates/{name}".format(name=arq)
+    path = "/Users/camilaconsentino/Desktop/tecweb/projeto1/tecweb-projeto1-camila/handout1/templates/{name}".format(name=arq)
     with open(path, 'r') as file:
         conteudo = file.read()
         return conteudo
