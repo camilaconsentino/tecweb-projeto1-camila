@@ -18,16 +18,16 @@ print(response)
 def read_file(path):
     with open(path, "rb") as file:
         conteudo = file.read()
-        return conteudo
+    return conteudo
     
 def load_data(json_arq):
-    path = "/Users/camilaconsentino/Desktop/tecweb/projeto1/tecweb-projeto1-camila/handout1/data/{name}".format(name=json_arq)
+    path = "data/{name}".format(name=json_arq)
     with open(path, 'r') as file:
         conteudo = json.load(file)
         return conteudo
     
 def load_template(arq):
-    path = "/Users/camilaconsentino/Desktop/tecweb/projeto1/tecweb-projeto1-camila/handout1/templates/{name}".format(name=arq)
+    path = "templates/{name}".format(name=arq)
     with open(path, 'r') as file:
         conteudo = file.read()
         return conteudo
@@ -41,6 +41,9 @@ def load_notes(params, json_arq):
         string = json.dumps(update)
         file.write(string)
 
-def build_response(body, code, reason, headers):
-    string = "HTTP 1.1 {code} {reason}\n{headers}\n\n{body}".format(code=code, reason=reason, headers=headers, body=body) 
-    return string
+def build_response(body='', code=200, reason='OK', headers=''):
+    if headers=='':
+        string = "HTTP/1.1 {code} {reason}\n\n{body}".format(code=code, reason=reason, body=body)
+    else:
+        string = "HTTP/1.1 {code} {reason}\n{headers}\n\n{body}".format(code=code, reason=reason, headers=headers, body=body) 
+    return string.encode()
