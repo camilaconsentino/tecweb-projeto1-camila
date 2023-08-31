@@ -58,8 +58,8 @@ def edit(request, id):
             params[chave] = valor
 
         #coloca a nova note no banco de dados
-        db = database.Database("banco.db")
-        db.update(database.Note(id=id, title=params.keys, content=params.values))
+        db = Database("banco")
+        db.update(Note(id=id, title=params.keys, content=params.values))
 
     #PRA QUE QUE SERVE ISSO AQUI??
     # Cria uma lista de <li>'s para cada anotação
@@ -75,20 +75,7 @@ def edit(request, id):
 
 
 def delete(request, id):
-    # A string de request sempre começa com o tipo da requisição (ex: GET, POST)
-    if request.startswith('POST'):
-        #coloca a nova note no banco de dados
-        db = database.Database("banco.db")
-        db.delete(id)
+    db = Database("banco.db")
+    db.delete(id)
 
-    #PRA QUE QUE SERVE ISSO AQUI??
-    # Cria uma lista de <li>'s para cada anotação
-    # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
-    note_template = load_template('components/note.html')
-    notes_li = [
-        note_template.format(title=dados['titulo'], details=dados['detalhes'])
-        for dados in load_data('notes.json')
-    ]
-    notes = '\n'.join(notes_li)
-
-    return load_template('index.html').format(notes=notes).encode()
+    return build_response(code=303, reason='See Other', headers='Location: /')
