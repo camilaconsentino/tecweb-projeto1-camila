@@ -1,4 +1,6 @@
 import json
+from database import *
+from exemplo_de_uso import db
 
 def extract_route(request):
     return request.split()[1][1:]
@@ -21,26 +23,16 @@ def read_file(path):
         conteudo = file.read()
     return conteudo
     
-def load_data(json_arq):
-    path = "data/{name}".format(name=json_arq)
-    with open(path, 'r') as file:
-        conteudo = json.load(file)
-        return conteudo
+def load_data():
+    db = Database('banco')
+    notes = db.get_all()
+    return notes
     
 def load_template(arq):
     path = "templates/{name}".format(name=arq)
     with open(path, 'r') as file:
         conteudo = file.read()
         return conteudo
-    
-def load_notes(params, json_arq):
-    update = load_data(json_arq) #é o arquivo json versao python
-    update.append(params) #conteudo do notes + nova info em versao python
-
-    path = "data/{name}".format(name=json_arq)
-    with open(path, 'w', encoding='utf-8') as file:
-        string = json.dumps(update)
-        file.write(string)
 
 def build_response(body='', code=200, reason='OK', headers=''):
     if headers=='':

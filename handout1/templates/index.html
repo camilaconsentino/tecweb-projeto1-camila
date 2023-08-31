@@ -26,7 +26,7 @@
 
     <main class="container">
       <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
-      <form class="form-card">
+      <form class="form-card" method="post">
         <input
           class="form-card-title"
           type="text"
@@ -42,82 +42,7 @@
       </form>
 
       <div class="card-container">
-        <div class="card">
-          <h3 class="card-title">Receita de miojo</h3>
-          <div class="card-content">
-            <p>
-              Bata com um martelo antes de abrir o pacote. Misture o tempero,
-              coloque em uma vasilha e aproveite seu snack :)
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Pão doce</h3>
-          <div class="card-content">
-            <p>Abra o pão e coloque o seu suco em pó favorito.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Sorvete com cristais de leite</h3>
-          <div class="card-content">
-            <p>
-              Sirva o seu sorvete favorito em uma vasilha e jogue leite em cima.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Iogurte natural</h3>
-          <div class="card-content">
-            <p>
-              Deixe o leite fora da geladeira (esse é mentira, não faça isso).
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Homer Simpson</h3>
-          <div class="card-content">
-            <p>~( 8(|)</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Numero mágico</h3>
-          <div class="card-content">
-            <p>142857</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Série da Fundação - Isaac Asimov</h3>
-          <div class="card-content">
-            <p>É boa, leia.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Sorvete de banana</h3>
-          <div class="card-content">
-            <p>Coloque a banana no congelador e espere.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Konami code easter eggs</h3>
-          <div class="card-content">
-            <p>Cultura nerd. Procure no Google.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Google gravity</h3>
-          <div class="card-content">
-            <p>Esse também</p>
-          </div>
-        </div>
+        {notes}
       </div>
     </main>
 

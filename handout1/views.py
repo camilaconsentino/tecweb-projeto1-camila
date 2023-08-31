@@ -1,6 +1,7 @@
-from utils import load_data, load_template, load_notes, build_response
+from utils import load_data, load_template, build_response
 from urllib.parse import unquote_plus
-import database
+from database import *
+from exemplo_de_uso import db
 
 def index(request):
     # A string de request sempre começa com o tipo da requisição (ex: GET, POST)
@@ -20,20 +21,17 @@ def index(request):
             valor = unquote_plus(valor, encoding='utf-8')
             params[chave] = valor
 
-        #coloca a nova note no doc json
-        load_notes(params, "notes.json")
-
         #coloca a nova note no banco de dados
-        db = database.Database("banco.db")
-        db.add(database.Note(title=params.keys, content=params.values))
+        db = Database("banco")
+        db.add(Note(title=params["titulo"], content=params["detalhes"]))
 
     #PRA QUE QUE SERVE ISSO AQUI??
     # Cria uma lista de <li>'s para cada anotação
     # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados['titulo'], details=dados['detalhes'])
-        for dados in load_data('notes.json')
+        note_template.format(title=dados.title, details=dados.content)
+        for dados in load_data()
     ]
     notes = '\n'.join(notes_li)
 
