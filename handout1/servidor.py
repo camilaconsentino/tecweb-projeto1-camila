@@ -37,7 +37,7 @@ while True:
     else:
         responde = build_response(code=404, reason='not found')
 
-    client_connection.sendall('HTTP/1.1 200 OK\n\n'.encode() + response)
+    client_connection.sendall(response)
 
     client_connection.close()
 

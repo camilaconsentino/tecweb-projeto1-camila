@@ -1,4 +1,4 @@
-from utils import load_data, load_template, load_notes
+from utils import load_data, load_template, load_notes, build_response
 from urllib.parse import unquote_plus
 import database
 
@@ -37,7 +37,9 @@ def index(request):
     ]
     notes = '\n'.join(notes_li)
 
-    return load_template('index.html').format(notes=notes).encode()
+    body = load_template('index.html').format(notes=notes)
+    return build_response(body)
+
 
 def edit(request, id):
     # A string de request sempre começa com o tipo da requisição (ex: GET, POST)

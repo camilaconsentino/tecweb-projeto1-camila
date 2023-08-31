@@ -1,6 +1,7 @@
 import json
 
 def extract_route(request):
+    return request.split()[1][1:]
     linhas = request.split("\n")
     primeira_linha = linhas[0]
     primeira_linha = primeira_linha.split(" ")
