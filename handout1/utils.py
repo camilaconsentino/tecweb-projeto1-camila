@@ -32,7 +32,7 @@ def load_template(arq):
     path = "templates/{name}".format(name=arq)
     with open(path, 'r') as file:
         conteudo = file.read()
-        return conteudo
+    return conteudo
 
 def build_response(body='', code=200, reason='OK', headers=''):
     if headers=='':
